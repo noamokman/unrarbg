@@ -1,0 +1,66 @@
+{
+  "name": "unrarbg",
+  "version": "0.0.0",
+  "description": "a tool to move media files from rarbg",
+  "main": "lib/index.js",
+  "scripts": {
+    "lint": "eslint src --fix",
+    "precommit": "lint-staged",
+    "commitmsg": "commitlint -e",
+    "babel": "babel src -d lib -s",
+    "build": "rimraf lib && npm run babel",
+    "prepublishOnly": "npm run build",
+    "test": "npm run lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noamokman/unrarbg.git"
+  },
+  "keywords": [
+    "rarbg"
+  ],
+  "author": {
+    "name": "Noam Okman",
+    "email": "noamokman@gmail.com",
+    "url": "https://github.com/noamokman"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noamokman/unrarbg/issues"
+  },
+  "homepage": "https://github.com/noamokman/unrarbg#readme",
+  "module": "src/index.js",
+  "engines": {
+    "node": ">=10"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0",
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@commitlint/cli": "^7.1.2",
+    "@commitlint/config-angular": "^7.1.2",
+    "babel-core": "^7.0.0-bridge.0",
+    "eslint": "^5.6.0",
+    "eslint-config-noamokman": "^8.0.1",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.22.0",
+    "eslint-plugin-lodash": "^2.7.0",
+    "eslint-plugin-unicorn": "^6.0.1",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.2.2",
+    "rimraf": "^2.6.2"
+  },
+  "dependencies": {
+    "del": "^3.0.0",
+    "p-filter": "^1.0.0",
+    "p-map": "^2.0.0",
+    "p-pipe": "^1.2.0",
+    "p-reflect": "^1.0.0"
+  }
+}
