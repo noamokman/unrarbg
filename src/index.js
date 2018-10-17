@@ -1,8 +1,11 @@
 import {promises} from 'fs';
 import {join} from 'path';
-import del from 'del';
+import rimraf from 'rimraf';
+import pify from 'pify';
 import pMap from 'p-map';
 import readAndParse from './readAndParse';
+
+const rimrafP = pify(rimraf);
 
 export default async (src, dest) => {
   const dirs = await readAndParse(src);
@@ -14,7 +17,7 @@ export default async (src, dest) => {
 
     await pMap(files, file => promises.rename(join(path, file), join(dest, file)));
 
-    await del(path);
+    await rimrafP(path, {disableGlob: true});
 
     return {path, status: 'success'};
   });

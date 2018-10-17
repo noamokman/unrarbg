@@ -43,7 +43,11 @@ const parseFolder = async path => {
 };
 
 export default pPipe(
-  readdir,
+  async path => {
+    const files = await readdir(path);
+
+    return files.map(file => join(path, file));
+  },
   files => pFilter(files, isRarbgFolder),
   rarbgFolders => pMap(rarbgFolders, parseFolder)
 );
