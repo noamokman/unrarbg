@@ -1,9 +1,11 @@
-import {readdir, stat, access} from 'fs/promises';
+import {promises} from 'fs';
 import {join, extname} from 'path';
 import pMap from 'p-map';
 import pPipe from 'p-pipe';
 import pFilter from 'p-filter';
 import pReflect from 'p-reflect';
+
+const {readdir, stat, access} = promises;
 
 const isRarbgFolder = async dir => {
   const stats = await stat(dir);

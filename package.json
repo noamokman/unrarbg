@@ -57,10 +57,15 @@
     "rimraf": "^2.6.2"
   },
   "dependencies": {
+    "caporal": "^0.10.0",
     "del": "^3.0.0",
     "p-filter": "^1.0.0",
     "p-map": "^2.0.0",
     "p-pipe": "^1.2.0",
-    "p-reflect": "^1.0.0"
+    "p-reflect": "^1.0.0",
+    "update-notifier": "^2.5.0"
+  },
+  "bin": {
+    "unrarbg": "bin/unrarbg"
   }
 }
