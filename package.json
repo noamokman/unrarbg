@@ -1,6 +1,6 @@
 {
   "name": "unrarbg",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "a tool to move media files from rarbg",
   "main": "lib/index.js",
   "scripts": {
