@@ -20,7 +20,7 @@ const isRarbgFolder = async dir => {
 };
 
 const getRelevantFiles = files => {
-  files = files.filter(file => file.toLowerCase() !== 'sample');
+  files = files.filter(file => file.toLowerCase() !== 'sample' && file.toLowerCase() !== 'RARBG_DO_NOT_MIRROR.exe');
 
   if (files.length > 3) {
     return;
