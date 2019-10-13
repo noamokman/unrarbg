@@ -7,7 +7,7 @@ import readAndParse from './readAndParse';
 
 const rimrafP = pify(rimraf);
 
-export default async (src, dest) => {
+export default async (src: string, dest: string) => {
   const dirs = await readAndParse(src);
 
   return pMap(dirs, async ({path, files}) => {

@@ -7,7 +7,7 @@ import pReflect from 'p-reflect';
 
 const {readdir, stat, access} = promises;
 
-const isRarbgFolder = async dir => {
+const isRarbgFolder = async (dir: string) => {
   const stats = await stat(dir);
 
   if (!stats.isDirectory()) {
@@ -19,7 +19,7 @@ const isRarbgFolder = async dir => {
   return isFulfilled;
 };
 
-const getRelevantFiles = files => {
+const getRelevantFiles = (files: string[]) => {
   files = files.filter(file => file.toLowerCase() !== 'sample' && file !== 'RARBG_DO_NOT_MIRROR.exe');
 
   if (files.length > 3) {
@@ -36,14 +36,14 @@ const getRelevantFiles = files => {
   return srt ? [mkv, srt] : [mkv];
 };
 
-const parseFolder = async path => {
+const parseFolder = async (path: string) => {
   const allFiles = await readdir(path);
 
   return {path, files: getRelevantFiles(allFiles)};
 };
 
 export default pPipe(
-  async path => {
+  async (path: string) => {
     const files = await readdir(path);
 
     return files.map(file => join(path, file));
