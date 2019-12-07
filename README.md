@@ -1,6 +1,8 @@
 # unrarbg [![Build Status](https://travis-ci.org/noamokman/unrarbg.svg?branch=master)](https://travis-ci.org/noamokman/unrarbg)
 a tool to move media files from rarbg
 
+![Logo](icon.png)
+
 ## Installation
 As cli tool
 ```bash
