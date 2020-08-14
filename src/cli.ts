@@ -17,7 +17,7 @@ export default async (argv: string[]) => {
   program
     .argument('<src>', 'The path to the source folder', STRING)
     .argument('<dest>', 'The path to the destination folder', STRING)
-    .action(async ({src, dest}, options, logger) => {
+    .action(async ({src, dest}, _, logger) => {
       try {
         const res = await unrarbg(src, dest);
 
